@@ -71,7 +71,7 @@ class Data_2018:
         self.month = month
         self.contracheque = contracheque
 
-    def validate_2018(self, output_path):
+    def validate(self, output_path):
         """
          Essa validação só leva em consideração o arquivo Membros Ativos-contracheque,
          pois até Julho de 2019 o MPSE não disponibiliza o arquivo Verbas Indenizatórias
