@@ -28,8 +28,6 @@ HEADERS = {
         "Gratificação Natalina": 9,
         "Férias (1/3 constitucional)": 10,
         "Abono de Permanência": 11,
-        "Outras Remunerações Temporárias": 12,
-        "Verbas indenizatórias": 13,
         "Contribuição Previdenciária": 15,
         "Imposto de Renda": 16,
         "Retenção por Teto Constitucional": 17,
@@ -113,7 +111,7 @@ def cria_remuneracao(row, categoria):
             elif value in [15, 16, 17]:
                 remuneracao.valor = remuneracao.valor * (-1)
                 remuneracao.natureza = Coleta.Remuneracao.Natureza.Value("D")
-            elif value in [7, 8, 9, 10, 11, 12, 13]:
+            elif value in [7, 8, 9, 10, 11]:
                 remuneracao.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")
         else:
             remuneracao.tipo_receita = Coleta.Remuneracao.TipoReceita.Value("O")

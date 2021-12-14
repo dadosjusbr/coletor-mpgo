@@ -13,7 +13,6 @@
                     {
                         "categoria": "contracheque",
                         "item": "Remuneração do Cargo Efetivo",
-                        "tipoReceita": "B",
                         "valor": 35462.22
                     },
                     {
@@ -40,17 +39,6 @@
                         "categoria": "contracheque",
                         "item": "Abono de Permanência",
                         "valor": 5053.36,
-                        "tipoReceita": "O"
-                    },
-                    {
-                        "categoria": "contracheque",
-                        "item": "Outras Remunerações Temporárias",
-                        "tipoReceita": "O"
-                    },
-                    {
-                        "categoria": "contracheque",
-                        "item": "Verbas indenizatórias",
-                        "valor": 1160.0,
                         "tipoReceita": "O"
                     },
                     {

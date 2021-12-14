@@ -27,7 +27,7 @@ def captura(mes, ano):
     """
     metadado.receita_base = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
     metadado.despesas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
-    if int(ano) == 2018 or (int(ano) == 2019 and int(mes) < 7):
+    if ano == 2018 or (ano == 2019 and mes < 7):
         metadado.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.SUMARIZADO
     else:
         metadado.outras_receitas = Coleta.Metadados.OpcoesDetalhamento.DETALHADO
