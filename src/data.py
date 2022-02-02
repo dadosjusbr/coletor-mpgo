@@ -8,9 +8,13 @@ STATUS_DATA_UNAVAILABLE = 4
 STATUS_INVALID_FILE = 5
 
 
-def _read(file):
+def _read(file, year, month):
     try:
         data = pd.read_csv(file).to_numpy()
+        # Compara o tamanho da planilha para ver se não está vázia.
+        if len(data) ==0:
+            sys.stderr.write(f"Não existe planilhas para {month}/{year}.")
+            sys.exit(STATUS_DATA_UNAVAILABLE)
     except Exception as excep:
         print(f"Erro lendo as planilhas: {excep}", file=sys.stderr)
         sys.exit(STATUS_INVALID_FILE)
@@ -27,12 +31,12 @@ def load(file_names, year, month):
      :return um objeto Data() pronto para operar com os arquivos
     """
 
-    contracheque = _read([c for c in file_names if "contracheque" in c][0])
+    contracheque = _read([c for c in file_names if "contracheque" in c][0], year, month)
     if int(year) == 2018 or (int(year) == 2019 and int(month) < 7):
         # Não existe dados exclusivos de verbas indenizatórias nesse período de tempo.
         return Data_2018(contracheque, year, month)
 
-    indenizatorias = _read([i for i in file_names if "indenizatorias" in i][0])
+    indenizatorias = _read([i for i in file_names if "indenizatorias" in i][0], year, month)
 
     return Data(contracheque, indenizatorias, year, month)
 
