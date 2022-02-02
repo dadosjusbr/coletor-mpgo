@@ -11,7 +11,7 @@ STATUS_INVALID_FILE = 5
 def _read(file, year, month):
     try:
         data = pd.read_csv(file).to_numpy()
-        # Compara o tamanho da planilha para ver se não está vázia.
+        # Compara o tamanho da planilha para ver se não está vazia.
         if len(data) ==0:
             sys.stderr.write(f"Não existe planilhas para {month}/{year}.")
             sys.exit(STATUS_DATA_UNAVAILABLE)
