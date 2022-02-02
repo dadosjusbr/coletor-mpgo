@@ -12,12 +12,13 @@ def _read(file, year, month):
     try:
         data = pd.read_csv(file).to_numpy()
         # Compara o tamanho da planilha para ver se não está vazia.
-        if len(data) ==0:
-            sys.stderr.write(f"Não existe planilhas para {month}/{year}.")
-            sys.exit(STATUS_DATA_UNAVAILABLE)
     except Exception as excep:
         print(f"Erro lendo as planilhas: {excep}", file=sys.stderr)
         sys.exit(STATUS_INVALID_FILE)
+        
+    if len(data) ==0:
+            sys.stderr.write(f"Não existe planilhas para {month}/{year}.")
+            sys.exit(STATUS_DATA_UNAVAILABLE)
     return data
 
 
