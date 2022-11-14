@@ -3,9 +3,7 @@ from coleta import coleta_pb2 as Coleta
 
 def captura(mes, ano):
     metadado = Coleta.Metadados()
-    metadado.nao_requer_login = True
-    metadado.nao_requer_captcha = True
-    metadado.acesso = Coleta.Metadados.FormaDeAcesso.AMIGAVEL_PARA_RASPAGEM
+    metadado.acesso = Coleta.Metadados.FormaDeAcesso.ACESSO_DIRETO
     metadado.extensao = Coleta.Metadados.Extensao.CSV
     metadado.estritamente_tabular = True
     """
