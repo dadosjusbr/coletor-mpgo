@@ -3,10 +3,10 @@
         {
             "idContraCheque": "mpgo/01/2020/1",
             "chaveColeta": "mpgo/01/2020",
-            "nome": "ZOELIA ANTUNES VIEIRA",
-            "matricula": "3417.0",
-            "funcao": "PROCURADOR DE JUSTICA",
-            "localTrabalho": "10ª PROCURADORIA DE JUSTIÇA",
+            "nome": "ABRAAO JUNIOR MIRANDA COELHO",
+            "matricula": "4316",
+            "funcao": "PROCURADOR DE JUSTICA/COORDENADOR DE PROCURADORIA DE JUSTIÇA",
+            "localTrabalho": "16ª PROCURADORIA DE JUSTIÇA",
             "ativo": true,
             "remuneracoes": {
                 "remuneracao": [
@@ -38,7 +38,6 @@
                     {
                         "categoria": "contracheque",
                         "item": "Abono de Permanência",
-                        "valor": 5053.36,
                         "tipoReceita": "O"
                     },
                     {
@@ -51,7 +50,7 @@
                         "natureza": "D",
                         "categoria": "contracheque",
                         "item": "Imposto de Renda",
-                        "valor": -8882.75
+                        "valor": -7440.94
                     },
                     {
                         "natureza": "D",
@@ -71,6 +70,16 @@
                     },
                     {
                         "categoria": "indenizações",
+                        "item": "Auxílio Saúde",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizações",
+                        "item": "Auxílio Transporte",
+                        "tipoReceita": "O"
+                    },
+                    {
+                        "categoria": "indenizações",
                         "item": "Verbas Rescisórias",
                         "tipoReceita": "O"
                     },
@@ -82,6 +91,7 @@
                     {
                         "categoria": "indenizações",
                         "item": "Abono Pecuniário",
+                        "valor": -1702.69,
                         "tipoReceita": "O"
                     },
                     {
@@ -113,7 +123,7 @@
                         "categoria": "indenizações",
                         "item": "Outras Remunerações Temporárias",
                         "tipoReceita": "O"
-                    }              
+                    }
                 ]
             }
         }
