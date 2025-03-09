@@ -28,7 +28,9 @@ jobs:
       
       # Installs dependencies from requirements.txt
       - name: Install dependencies
-        run: pip3 install -r requirements.txt
+        run: |
+          pip install --upgrade pip setuptools wheel
+          pip3 install -r requirements.txt
 
       # Running all tests
       - name: Running tests
