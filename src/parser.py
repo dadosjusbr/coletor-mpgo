@@ -33,17 +33,19 @@ HEADERS = {
         "Retenção por Teto Constitucional": 17,
     },
     INDENIZACOES: {
-        "Auxílio": 4,
-        "Auxílio Creche": 5,
-        "Verbas Rescisórias": 6,
-        "Licença-Prêmio": 7,
-        "Abono Pecuniário": 8,
-        "Outras Verbas Indenizatórias": 9,
-        "Adicional de Insalubridade/Periculosidade": 10,
-        "Gratificação Exercício Cumulativo": 11,
-        "Gratificação Exercício Natureza Especial": 12,
-        "Substituição": 13,
-        "Outras Remunerações Temporárias": 14,
+        "Auxílio":6,
+        "Auxílio Creche":7,
+        "Auxílio Saúde":8,
+        "Auxílio Transporte":9,
+        "Verbas Rescisórias":10,
+        "Licença-Prêmio":11,
+        "Abono Pecuniário":12,
+        "Outras Verbas Indenizatórias":13,
+        "Adicional de Insalubridade/Periculosidade":14,
+        "Gratificação Exercício Cumulativo":15,
+        "Gratificação Exercício Natureza Especial":16,
+        "Substituição":17,
+        "Outras Remunerações Temporárias":18,
     },
 }
 
@@ -122,7 +124,7 @@ def cria_remuneracao(row, categoria):
 
 def update_employees(fn, employees, categoria):
     for row in fn:
-        name = row[1]
+        name = row[3]
         if name in employees.keys():
             emp = employees[name]
             remu = cria_remuneracao(row, categoria)
