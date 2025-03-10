@@ -60,10 +60,14 @@ def parse_employees(fn, chave_coleta, mes, ano):
         else:
             funcao = row[4]
             local_trabalho = row[5]
+        
+        # Caso o membro não tenha lotação
+        if is_nan(local_trabalho): 
+            local_trabalho = ""
       
-        matricula = str(row[2])
         name = row[3]
         if not is_nan(name) and name != "0":
+            matricula = str(int(row[2])) # para a matricula não entrar como float
             membro = Coleta.ContraCheque()
             membro.id_contra_cheque = chave_coleta + "/" + str(counter)
             membro.chave_coleta = chave_coleta
