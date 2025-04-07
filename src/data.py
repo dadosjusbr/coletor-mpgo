@@ -10,7 +10,11 @@ STATUS_INVALID_FILE = 5
 
 def _read(file, year, month):
     try:
-        data = pd.read_csv(file).to_numpy()
+        # Adicionamos essa condição devido ao cabeçalho adicionando a essa planilha específica
+        if "indenizatorias" in file:
+            data = pd.read_csv(file, skiprows=2).to_numpy()
+        else:
+            data = pd.read_csv(file).to_numpy()
         # Compara o tamanho da planilha para ver se não está vazia.
     except Exception as excep:
         print(f"Erro lendo as planilhas: {excep}", file=sys.stderr)

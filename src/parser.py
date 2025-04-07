@@ -33,17 +33,19 @@ HEADERS = {
         "Retenção por Teto Constitucional": 17,
     },
     INDENIZACOES: {
-        "Auxílio": 4,
-        "Auxílio Creche": 5,
-        "Verbas Rescisórias": 6,
-        "Licença-Prêmio": 7,
-        "Abono Pecuniário": 8,
-        "Outras Verbas Indenizatórias": 9,
-        "Adicional de Insalubridade/Periculosidade": 10,
-        "Gratificação Exercício Cumulativo": 11,
-        "Gratificação Exercício Natureza Especial": 12,
-        "Substituição": 13,
-        "Outras Remunerações Temporárias": 14,
+        "Auxílio":6,
+        "Auxílio Creche":7,
+        "Auxílio Saúde":8,
+        "Auxílio Transporte":9,
+        "Verbas Rescisórias":10,
+        "Licença-Prêmio":11,
+        "Abono Pecuniário":12,
+        "Outras Verbas Indenizatórias":13,
+        "Adicional de Insalubridade/Periculosidade":14,
+        "Gratificação Exercício Cumulativo":15,
+        "Gratificação Exercício Natureza Especial":16,
+        "Substituição":17,
+        "Outras Remunerações Temporárias":18,
     },
 }
 
@@ -58,10 +60,14 @@ def parse_employees(fn, chave_coleta, mes, ano):
         else:
             funcao = row[4]
             local_trabalho = row[5]
+        
+        # Caso o membro não tenha lotação
+        if is_nan(local_trabalho): 
+            local_trabalho = ""
       
-        matricula = str(row[2])
         name = row[3]
         if not is_nan(name) and name != "0":
+            matricula = str(int(row[2])) # para a matricula não entrar como float
             membro = Coleta.ContraCheque()
             membro.id_contra_cheque = chave_coleta + "/" + str(counter)
             membro.chave_coleta = chave_coleta
@@ -122,7 +128,7 @@ def cria_remuneracao(row, categoria):
 
 def update_employees(fn, employees, categoria):
     for row in fn:
-        name = row[1]
+        name = row[3]
         if name in employees.keys():
             emp = employees[name]
             remu = cria_remuneracao(row, categoria)
