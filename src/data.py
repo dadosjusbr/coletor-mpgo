@@ -15,6 +15,7 @@ def _read(file, year, month):
             data = pd.read_csv(file, skiprows=2).to_numpy()
         else:
             data = pd.read_csv(file, skiprows=2, sep="\t").to_numpy()
+
         # Compara o tamanho da planilha para ver se não está vazia.
     except Exception as excep:
         print(f"Erro lendo as planilhas: {excep}", file=sys.stderr)

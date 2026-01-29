@@ -68,6 +68,7 @@ def parse_employees(fn, chave_coleta, mes, ano):
         name = row[3]
         if not is_nan(name) and name != "0":
             matricula = str(int(row[2]))  # para a matricula não entrar como float
+
             membro = Coleta.ContraCheque()
             membro.id_contra_cheque = chave_coleta + "/" + str(counter)
             membro.chave_coleta = chave_coleta
