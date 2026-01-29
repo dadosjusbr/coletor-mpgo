@@ -4,20 +4,34 @@ import sys
 import os
 import urllib3
 
-base_url = "https://www.mpgo.mp.br/transparencia/contracheque/detalhamento_folha?utf8=✓&contracheque_tb_detalhamento_folha%5Btipo%5D=r_membro_ativo&contracheque_tb_detalhamento_folha%5Bano%5D="
+base_url = "https://www.mpgo.mp.br/transparencia/contracheque/detalhamento_folha?utf8=%E2%9C%93&tipo=r_membro_ativo&contracheque_tb_detalhamento_folha%5Bano%5D="
 base_url_indenizatorias = "https://www.mpgo.mp.br/transparencia/contracheque/tb_verbas_indeniz_remun?utf8=%E2%9C%93&contracheque_tb_verbas_indeniz_remun%5Bano%5D="
+# https://www.mpgo.mp.br/transparencia/contracheque/detalhamento_folha?utf8=%E2%9C%93&tipo=r_membro_ativo&contracheque_tb_detalhamento_folha%5Bano%5D=2025&contracheque_tb_detalhamento_folha%5Bmes%5D=12&contracheque_tb_detalhamento_folha%5Bcdg_ordem%5D=&contracheque_tb_detalhamento_folha%5Bnm_pessoa%5D=&direction=&sort=&commit=CSV
+# https://www.mpgo.mp.br/transparencia/contracheque/tb_verbas_indeniz_remun?utf8=%E2%9C%93&contracheque_tb_verbas_indeniz_remun%5Bano%5D=2025&contracheque_tb_verbas_indeniz_remun%5Bmes%5D=12&contracheque_tb_verbas_indeniz_remun%5Bnm_pessoa%5D=&commit=CSV
 
 
 def links_remuneration(month, year):
     links_type = {}
-    link = base_url + year + "&contracheque_tb_detalhamento_folha%5Bmes%5D=" + month + "&contracheque_tb_detalhamento_folha%5Bcdg_ordem%5D=&contracheque_tb_detalhamento_folha%5Bnm_pessoa%5D=&commit=CSV"
+    link = (
+        base_url
+        + year
+        + "&contracheque_tb_detalhamento_folha%5Bmes%5D="
+        + month
+        + "&contracheque_tb_detalhamento_folha%5Bcdg_ordem%5D=&contracheque_tb_detalhamento_folha%5Bnm_pessoa%5D=&direction=&sort=&commit=CSV"
+    )
     links_type["Membros ativos"] = link
     return links_type
 
 
 def links_perks_temporary_funds(month, year):
     links_type = {}
-    link = base_url_indenizatorias + year + "&contracheque_tb_verbas_indeniz_remun%5Bmes%5D=" + month + "&contracheque_tb_verbas_indeniz_remun%5Bnm_pessoa%5D=&commit=CSV"
+    link = (
+        base_url_indenizatorias
+        + year
+        + "&contracheque_tb_verbas_indeniz_remun%5Bmes%5D="
+        + month
+        + "&contracheque_tb_verbas_indeniz_remun%5Bnm_pessoa%5D=&commit=CSV"
+    )
     links_type["Membros ativos"] = link
     return links_type
 
